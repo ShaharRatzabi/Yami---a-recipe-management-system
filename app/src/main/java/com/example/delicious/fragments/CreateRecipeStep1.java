@@ -71,6 +71,7 @@ public class CreateRecipeStep1 extends Fragment {
         View view = inflater.inflate(R.layout.fragment_create_recipe_step1, container, false);
         Recipe currentRecipe = MainActivity.currentRecipe;
         Spinner spinner = view.findViewById(R.id.spinnerCategory);
+
 // Define your options
         String[] options = {"main course",
                 "side dish",
@@ -86,14 +87,32 @@ public class CreateRecipeStep1 extends Fragment {
                 "fingerfood",
                 "snack",
                 "drink"};
-// Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<String> adapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_spinner_item, options);
-// Specify the layout to use when the list of choices appears
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-// Apply the adapter to the spinner
         spinner.setAdapter(adapter);
         Button toStep2 = view.findViewById(R.id.NextToStep4Btn);
-        Button backToHomePage = view.findViewById(R.id.backToHomePageFromSearchBtn);
+        Button logoutBtn = view.findViewById(R.id.logoutBtnStep1);
+        Button homeBtn = view.findViewById(R.id.homeBtnStep1);
+        Button searchBtn = view.findViewById(R.id.searchBtnStep1);
+        Button accountBtn = view.findViewById(R.id.homeBtnStep1);
+        accountBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(view).navigate(R.id.action_createRecipe1_to_accountPage2);
+            }
+        });
+        searchBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(view).navigate(R.id.action_createRecipe1_to_search);
+            }
+        });
+        homeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(view).navigate(R.id.action_createRecipe1_to_homePage3);
+            }
+        });
         toStep2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -115,13 +134,14 @@ public class CreateRecipeStep1 extends Fragment {
                 Navigation.findNavController(view).navigate(R.id.action_createRecipe1_to_createRecipeStep2);
             }
         });
-         backToHomePage.setOnClickListener(new View.OnClickListener() {
+         logoutBtn.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
 
                  Navigation.findNavController(view).navigate(R.id.action_createRecipe1_to_login2);
              }
          });
+
         return view;
     }
 }

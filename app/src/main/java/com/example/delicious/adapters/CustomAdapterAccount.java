@@ -23,6 +23,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.delicious.R;
 import com.example.delicious.Recipe;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -129,7 +133,9 @@ public class CustomAdapterAccount extends RecyclerView.Adapter<CustomAdapterAcco
                 }).setNegativeButton("DELETE", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-
+//                        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//                        DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("users").child(user.getUid());
+//                        DatabaseReference recipesRef = userRef.child()
                     }
                 });
 

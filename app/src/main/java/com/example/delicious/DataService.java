@@ -26,7 +26,7 @@ public class DataService {
         Random random = new Random();
         Integer randomNumber = random.nextInt(10);
         String sURL = "https://api.spoonacular.com/recipes/complexSearch?apiKey=" + apiKey +
-                "&addRecipeInformation=true&instructionsRequired=true&fillIngredients=true&number=20&offset="+randomNumber.toString() +"&query=" + q;
+                "&addRecipeInformation=true&instructionsRequired=true&fillIngredients=true&number=100&offset="+randomNumber.toString() +"&query=" + q;
 
         JsonArray resultsArray = getJsonObject(sURL).get("results").getAsJsonArray();
         return fromJsonToArr(resultsArray);
@@ -35,7 +35,7 @@ public class DataService {
     public static ArrayList<Recipe> getRandomArrRecipes() throws IOException {
         Random random = new Random();
         Integer randomNumber = random.nextInt(10);
-        String sURL = "https://api.spoonacular.com/recipes/random?apiKey=" + apiKey + "&addRecipeInformation=true&instructionsRequired=true&fillIngredients=true&number=20&offset=" + randomNumber.toString();
+        String sURL = "https://api.spoonacular.com/recipes/random?apiKey=" + apiKey + "&addRecipeInformation=true&instructionsRequired=true&fillIngredients=true&number=12&offset=" + randomNumber.toString();
         JsonArray resultsArray = getJsonObject(sURL).get("recipes").getAsJsonArray();
         return fromJsonToArr(resultsArray);
     }
@@ -59,12 +59,12 @@ public class DataService {
             if (name == null || name.isEmpty()) {
                 name = "Title not included";
             }
-            String totalTime = recipeObj.get("readyInMinutes").getAsString()+" min";
+            String totalTime = recipeObj.get("readyInMinutes").getAsString();
             if (totalTime == null || totalTime.isEmpty()) {
-                // Use a placeholder image URL if the image URL is missing
                 totalTime = "Preparation time not included";
-
             }
+            else
+                totalTime= totalTime + " min";
             JsonArray categoryArr = recipeObj.getAsJsonArray("dishTypes");
             String category = "Category not included";
             if (categoryArr != null && categoryArr.size() > 0) {
@@ -75,8 +75,7 @@ public class DataService {
             }
             String description = recipeObj.get("summary").getAsString();
             if (description == null || description.isEmpty()) {
-                // Use a placeholder image URL if the image URL is missing
-                description = "Preparation time not included";
+                description = "Description not included";
             }
             String imageUrl = recipeObj.get("image").getAsString();
             if (imageUrl == null || imageUrl.isEmpty()) {
@@ -86,7 +85,6 @@ public class DataService {
             ArrayList<String> ingredientsList = new ArrayList<>();
             JsonArray ingredientsArray = recipeObj.get("extendedIngredients").getAsJsonArray();
             if (ingredientsArray == null || ingredientsArray.size()==0) {
-                // Use a placeholder image URL if the image URL is missing
                 ingredientsList.add("Ingredients is missing");
 
             }
@@ -100,14 +98,9 @@ public class DataService {
             JsonArray analyzedInstructionsArray = recipeObj.getAsJsonArray("analyzedInstructions");
             String instructions = "Instructions not includeג";
             if (analyzedInstructionsArray != null && analyzedInstructionsArray.size() > 0) {
-                // Get the first object from the array
                 JsonObject firstInstruction = analyzedInstructionsArray.get(0).getAsJsonObject();
-
-                // Get the "steps" array from the first instruction object
                 JsonArray stepsArray = firstInstruction.getAsJsonArray("steps");
-
                 if (stepsArray != null && stepsArray.size() > 0) {
-                    // Iterate through the steps array and extract the instructions
                     StringBuilder instructionsBuilder = new StringBuilder();
                     for (JsonElement step : stepsArray) {
                         JsonObject stepObj = step.getAsJsonObject();

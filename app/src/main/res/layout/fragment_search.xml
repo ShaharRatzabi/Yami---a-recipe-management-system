@@ -19,7 +19,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/backToHomePageFromSearchBtn"
+                android:id="@+id/logoutBtnStep1"
                 android:layout_width="53dp"
                 android:layout_height="match_parent"
                 android:backgroundTint="#FFFFFF"

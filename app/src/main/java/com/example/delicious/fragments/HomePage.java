@@ -119,16 +119,11 @@ public class HomePage extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         recyclerView = view.findViewById(R.id.recyclerViewHP);
         dataset = new ArrayList<>();
-        dataset.clear();
         try {
-            ;
-            for (Recipe recipe : DataService.getRandomArrRecipes()) {
+            for (Recipe recipe : DataService.getRandomArrRecipes())
                 dataset.add(recipe);
-            }
-            // Initialize your adapter with the dataset
-            adapter = new CustomAdapterSearch(dataset, requireContext());
 
-            // Set up your RecyclerView with the adapter
+            adapter = new CustomAdapterSearch(dataset, requireContext());
             linearLayoutManager = new LinearLayoutManager(requireContext());
             recyclerView.setLayoutManager(linearLayoutManager);
             recyclerView.setItemAnimator(new DefaultItemAnimator());

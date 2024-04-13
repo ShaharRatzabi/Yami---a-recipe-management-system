@@ -76,7 +76,6 @@ public class CustomAdapterSearch extends RecyclerView.Adapter<CustomAdapterSearc
     @Override
     public void onBindViewHolder(@NonNull CustomAdapterSearch.MyViewHolder holder, int position) {
         if (dataset == null || dataset.isEmpty()) {
-            // Handle empty dataset state
             return;
         }
 

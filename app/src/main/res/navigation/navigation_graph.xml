@@ -49,6 +49,15 @@
         <action
             android:id="@+id/action_search_to_homePage3"
             app:destination="@id/homePage3" />
+        <action
+            android:id="@+id/action_search_to_createRecipe1"
+            app:destination="@id/createRecipe1" />
+        <action
+            android:id="@+id/action_search_to_accountPage2"
+            app:destination="@id/accountPage2" />
+        <action
+            android:id="@+id/action_search_to_login"
+            app:destination="@id/login" />
     </fragment>
     <fragment
         android:id="@+id/createRecipe1"
@@ -61,6 +70,15 @@
         <action
             android:id="@+id/action_createRecipe1_to_login2"
             app:destination="@id/login" />
+        <action
+            android:id="@+id/action_createRecipe1_to_homePage3"
+            app:destination="@id/homePage3" />
+        <action
+            android:id="@+id/action_createRecipe1_to_search"
+            app:destination="@id/search" />
+        <action
+            android:id="@+id/action_createRecipe1_to_accountPage2"
+            app:destination="@id/accountPage2" />
     </fragment>
     <fragment
         android:id="@+id/createRecipeStep2"

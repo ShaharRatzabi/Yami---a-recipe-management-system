@@ -100,7 +100,7 @@ public class CreateRecipeStep2 extends Fragment {
         });
 
         Button toStep3 = view.findViewById(R.id.NextToStep3Btn);
-        Button backToStep1 = view.findViewById(R.id.backToHomePageFromSearchBtn);
+        Button backToStep1 = view.findViewById(R.id.logoutBtnStep1);
         backToStep1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

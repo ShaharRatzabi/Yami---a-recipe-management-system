@@ -31,7 +31,10 @@
                 android:id="@+id/textView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Popular recipes" />
+                android:layout_marginLeft="10dp"
+                android:text="Popular recipes"
+                android:textAppearance="@style/TextBlack"
+                android:textSize="24sp" />
 
         </LinearLayout>
 
@@ -89,20 +92,6 @@
             android:includeFontPadding="false"
             android:padding="10dp"
             android:text="Create"
-            android:textAlignment="gravity"
-            android:textColor="#000000"
-            android:textSize="14sp" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:autoText="false"
-            android:backgroundTint="#FFFFFF"
-            android:drawableTop="@drawable/search_logo"
-            android:includeFontPadding="false"
-            android:padding="10dp"
-            android:text="Search"
             android:textAlignment="gravity"
             android:textColor="#000000"
             android:textSize="14sp" />

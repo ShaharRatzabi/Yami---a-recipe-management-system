@@ -19,7 +19,7 @@
 
             <Button
                 android:id="@+id/logoutBtnAccount"
-                android:layout_width="54dp"
+                android:layout_width="73dp"
                 android:layout_height="45dp"
                 android:backgroundTint="#FFFFFF"
                 android:drawableLeft="@drawable/logout"
@@ -27,12 +27,13 @@
                 android:textSize="12sp"
                 android:textStyle="bold" />
 
-            <ImageView
-                android:id="@+id/imageView5"
-                android:layout_width="171dp"
-                android:layout_height="41dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/yummy_logo_transparent_without_slogan" />
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Your favorite"
+                android:textAppearance="@style/TextBlack"
+                android:textSize="24sp" />
 
         </LinearLayout>
 
@@ -43,13 +44,19 @@
             android:layout_marginLeft="30dp"
             android:layout_marginTop="20dp"
             android:text="Hello"
-            android:textSize="34sp" />
+            android:textSize="20sp"
+            android:textAppearance="@style/TextBlack"/>
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:text="TextView"
+            android:textAppearance="@style/TextBlack"
+            android:textColor="#B35101"
+            android:textSize="16sp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewFromApi"
@@ -64,7 +71,11 @@
             android:id="@+id/textView10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Your own recipes" />
+            android:layout_marginLeft="30dp"
+            android:text="Your own recipes"
+            android:textAppearance="@style/TextBlack"
+            android:textColor="#B35101"
+            android:textSize="16sp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewYourOwn"
@@ -125,21 +136,6 @@
             android:includeFontPadding="false"
             android:padding="10dp"
             android:text="Create"
-            android:textAlignment="gravity"
-            android:textColor="#000000"
-            android:textSize="14sp" />
-
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:autoText="false"
-            android:backgroundTint="#FFFFFF"
-            android:drawableTop="@drawable/search_logo"
-            android:includeFontPadding="false"
-            android:padding="10dp"
-            android:text="Search"
             android:textAlignment="gravity"
             android:textColor="#000000"
             android:textSize="14sp" />

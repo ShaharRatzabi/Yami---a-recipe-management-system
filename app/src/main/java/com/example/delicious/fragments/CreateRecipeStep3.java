@@ -69,7 +69,7 @@ public class CreateRecipeStep3 extends Fragment {
         View view = inflater.inflate(R.layout.fragment_create_recipe_step3, container, false);
         Recipe currentRecipe = MainActivity.currentRecipe;
         Button toStep4 = view.findViewById(R.id.NextToStep4Btn);
-        Button backToStep2 = view.findViewById(R.id.backToHomePageFromSearchBtn);
+        Button backToStep2 = view.findViewById(R.id.logoutBtnStep1);
         EditText editTextSteps = view.findViewById(R.id.editTextMultiLineSteps);
         String steps = editTextSteps.getText().toString();
         backToStep2.setOnClickListener(new View.OnClickListener() {

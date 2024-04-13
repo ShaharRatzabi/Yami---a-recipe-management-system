@@ -28,8 +28,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 
 import java.util.UUID;
 
@@ -90,7 +88,7 @@ public class CreateRecipeStep4 extends Fragment {
         View view = inflater.inflate(R.layout.fragment_create_recipe_step4, container, false);
         imageView = view.findViewById(R.id.imageView);
 
-        Button BackToStep3 = view.findViewById(R.id.backToHomePageFromSearchBtn);
+        Button BackToStep3 = view.findViewById(R.id.logoutBtnStep1);
         Button confirmBtn = view.findViewById(R.id.confirmBtn);
         Button addImageBtn = view.findViewById(R.id.addImageBtn);
 
@@ -164,11 +162,8 @@ public class CreateRecipeStep4 extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null) {
-            // The user has selected an image, handle it here
             Uri selectedImageUri = data.getData();
-            // Set the selected image to the imageView
             imageView.setImageURI(selectedImageUri);
-            // Store the selected image URI in the tag of the imageView for later use
             imageView.setTag(selectedImageUri);
         }
     }

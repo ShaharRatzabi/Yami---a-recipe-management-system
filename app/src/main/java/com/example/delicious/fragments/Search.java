@@ -80,12 +80,33 @@ public class Search extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_search, container, false);
 
-        Button backBtn = view.findViewById(R.id.backToHomePageFromSearchBtn);
+        Button backBtn = view.findViewById(R.id.logoutBtnStep1);
         Button searchBtn = view.findViewById(R.id.searchRecipeBtn);
-        backBtn.setOnClickListener(new View.OnClickListener() {
+        Button createBtn = view.findViewById(R.id.createBtnSearch);
+        Button accountBtn = view.findViewById(R.id.accountBtnSearch);
+        Button homeBtn = view.findViewById(R.id.homeBtnSearch);
+        homeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Navigation.findNavController(view).navigate(R.id.action_search_to_homePage3);
+            }
+        });
+        accountBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(view).navigate(R.id.action_search_to_accountPage2);
+            }
+        });
+        createBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(view).navigate(R.id.action_search_to_createRecipe1);
+            }
+        });
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(view).navigate(R.id.action_search_to_login);
             }
         });
         searchBtn.setOnClickListener(new View.OnClickListener() {
