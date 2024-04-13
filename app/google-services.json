@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "363682413877",
+    "project_id": "delicious-bf20b",
+    "storage_bucket": "delicious-bf20b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:363682413877:android:f58ad55ad273d7a2f6607c",
+        "android_client_info": {
+          "package_name": "com.example.delicious"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBa8EWJzvhkZ2bSXPlDkP5kRRmpXubCo9Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

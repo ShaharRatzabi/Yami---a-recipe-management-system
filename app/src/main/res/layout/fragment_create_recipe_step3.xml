@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFF8"
+    android:orientation="vertical"
+    tools:context=".fragments.CreateRecipeStep1">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="647dp"
+        android:background="@drawable/white_background"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/backToHomePageFromSearchBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:backgroundTint="#FFFFFF"
+                android:drawableLeft="@drawable/step_back"
+                android:paddingLeft="12dp"
+                android:textColor="#000000"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textViewNameHpCard"
+                android:layout_width="321dp"
+                android:layout_height="match_parent"
+                android:background="#FFFFFF"
+                android:gravity="center_vertical"
+                android:text="Create your own recipe"
+                android:textAppearance="@style/TextBlack"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewOverview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="OVERVIEW"
+                android:textColor="#777070" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="INGREDIENTS"
+                android:textColor="#777070" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="STEPS"
+                android:textColor="#EF6C00"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="IMAGE"
+                android:textColor="#737272" />
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="435dp"
+            android:layout_margin="30dp"
+            android:background="@drawable/edittext_custom"
+            app:cardCornerRadius="30dp"
+            app:cardElevation="20sp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="416dp"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="Steps" />
+
+                <EditText
+                    android:id="@+id/editTextMultiLineSteps"
+                    android:layout_width="match_parent"
+                    android:layout_height="364dp"
+                    android:background="@drawable/edittext_custom_square"
+                    android:gravity="top|start"
+                    android:inputType="textMultiLine"
+                    android:lines="8" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/NextToStep4Btn"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="#FFA500"
+            android:text="Next"
+            android:textColor="#020202" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/homeBtnStep3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:autoText="false"
+            android:backgroundTint="#FFFFFF"
+            android:drawableTop="@drawable/home_icon"
+            android:includeFontPadding="false"
+            android:padding="10dp"
+            android:text="Home"
+            android:textAlignment="gravity"
+            android:textColor="#000000"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/searchBtnStep3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:autoText="false"
+            android:backgroundTint="#FFFFFF"
+            android:drawableTop="@drawable/search_logo"
+            android:includeFontPadding="false"
+            android:padding="10dp"
+            android:text="Search"
+            android:textAlignment="gravity"
+            android:textColor="#000000"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/createBtnStep3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:autoText="false"
+            android:backgroundTint="#FFFFFF"
+            android:drawableTop="@drawable/plus_icon"
+            android:includeFontPadding="false"
+            android:padding="10dp"
+            android:text="Create"
+            android:textAlignment="gravity"
+            android:textColor="#000000"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/accountBtnStep3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:autoText="false"
+            android:backgroundTint="#FFFFFF"
+            android:drawableTop="@drawable/person_icon"
+            android:includeFontPadding="false"
+            android:padding="10dp"
+            android:text="Account"
+            android:textAlignment="gravity"
+            android:textColor="#000000"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+</LinearLayout>
