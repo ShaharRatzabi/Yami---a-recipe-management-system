@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/login">
+
+    <fragment
+        android:id="@+id/login"
+        android:name="com.example.delicious.fragments.Login"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_login_to_register"
+            app:destination="@id/register" />
+        <action
+            android:id="@+id/action_login_to_homePage3"
+            app:destination="@id/homePage3" />
+    </fragment>
+    <fragment
+        android:id="@+id/register"
+        android:name="com.example.delicious.fragments.Register"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_register_to_login"
+            app:destination="@id/login" />
+        <action
+            android:id="@+id/action_register_to_homePage3"
+            app:destination="@id/homePage3" />
+    </fragment>
+    <fragment
+        android:id="@+id/createRecipe"
+        android:name="com.example.delicious.fragments.CreateRecipeStep4"
+        android:label="fragment_create_recipe"
+        tools:layout="@layout/fragment_create_recipe_step4" >
+        <action
+            android:id="@+id/action_createRecipe_to_createRecipeStep3"
+            app:destination="@id/createRecipeStep3" />
+        <action
+            android:id="@+id/action_createRecipe_to_accountPage2"
+            app:destination="@id/accountPage2" />
+    </fragment>
+    <fragment
+        android:id="@+id/search"
+        android:name="com.example.delicious.fragments.Search"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_search_to_homePage3"
+            app:destination="@id/homePage3" />
+    </fragment>
+    <fragment
+        android:id="@+id/createRecipe1"
+        android:name="com.example.delicious.fragments.CreateRecipeStep1"
+        android:label="fragment_create_recipe1"
+        tools:layout="@layout/fragment_create_recipe_step1" >
+        <action
+            android:id="@+id/action_createRecipe1_to_createRecipeStep2"
+            app:destination="@id/createRecipeStep2" />
+        <action
+            android:id="@+id/action_createRecipe1_to_login2"
+            app:destination="@id/login" />
+    </fragment>
+    <fragment
+        android:id="@+id/createRecipeStep2"
+        android:name="com.example.delicious.fragments.CreateRecipeStep2"
+        android:label="fragment_create_recipe_step2"
+        tools:layout="@layout/fragment_create_recipe_step2" >
+        <action
+            android:id="@+id/action_createRecipeStep2_to_createRecipe1"
+            app:destination="@id/createRecipe1" />
+        <action
+            android:id="@+id/action_createRecipeStep2_to_createRecipeStep3"
+            app:destination="@id/createRecipeStep3" />
+    </fragment>
+    <fragment
+        android:id="@+id/createRecipeStep3"
+        android:name="com.example.delicious.fragments.CreateRecipeStep3"
+        android:label="CreateRecipeStep3" >
+        <action
+            android:id="@+id/action_createRecipeStep3_to_createRecipe"
+            app:destination="@id/createRecipe" />
+        <action
+            android:id="@+id/action_createRecipeStep3_to_createRecipeStep2"
+            app:destination="@id/createRecipeStep2" />
+    </fragment>
+    <fragment
+        android:id="@+id/homePage3"
+        android:name="com.example.delicious.fragments.HomePage"
+        android:label="fragment_home_page"
+        tools:layout="@layout/fragment_home_page" >
+        <action
+            android:id="@+id/action_homePage3_to_login"
+            app:destination="@id/login" />
+        <action
+            android:id="@+id/action_homePage3_to_createRecipe1"
+            app:destination="@id/createRecipe1" />
+        <action
+            android:id="@+id/action_homePage3_to_search"
+            app:destination="@id/search" />
+        <action
+            android:id="@+id/action_homePage3_to_accountPage2"
+            app:destination="@id/accountPage2" />
+    </fragment>
+    <fragment
+        android:id="@+id/accountPage2"
+        android:name="com.example.delicious.fragments.AccountPage"
+        android:label="fragment_account_page"
+        tools:layout="@layout/fragment_account_page" >
+        <action
+            android:id="@+id/action_accountPage2_to_createRecipe1"
+            app:destination="@id/createRecipe1" />
+        <action
+            android:id="@+id/action_accountPage2_to_homePage3"
+            app:destination="@id/homePage3" />
+        <action
+            android:id="@+id/action_accountPage2_to_search"
+            app:destination="@id/search" />
+        <action
+            android:id="@+id/action_accountPage2_to_login"
+            app:destination="@id/login" />
+    </fragment>
+</navigation>

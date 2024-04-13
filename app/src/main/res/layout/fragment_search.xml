@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".fragments.Search">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="653dp"
+        android:background="@drawable/white_background"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/backToHomePageFromSearchBtn"
+                android:layout_width="53dp"
+                android:layout_height="match_parent"
+                android:backgroundTint="#FFFFFF"
+                android:drawableLeft="@drawable/logout"
+                android:paddingLeft="12dp"
+                android:textColor="#000000"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/editTextSearch"
+                android:layout_width="289dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edittext_custom"
+                android:text=""
+                android:textColor="@color/black"
+                android:textColorHighlight="@color/cardview_dark_background" />
+
+            <Button
+                android:id="@+id/searchRecipeBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="B" />
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewSearch"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/homeBtnSearch"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:autoText="false"
+            android:backgroundTint="#FFFFFF"
+            android:drawableTop="@drawable/home_icon"
+            android:includeFontPadding="false"
+            android:padding="10dp"
+            android:text="Home"
+            android:textAlignment="gravity"
+            android:textColor="#000000"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/searchBtnSearch"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:autoText="false"
+            android:backgroundTint="#FFFFFF"
+            android:drawableTop="@drawable/search_logo"
+            android:includeFontPadding="false"
+            android:padding="10dp"
+            android:text="Search"
+            android:textAlignment="gravity"
+            android:textColor="#000000"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/createBtnSearch"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:autoText="false"
+            android:backgroundTint="#FFFFFF"
+            android:drawableTop="@drawable/plus_icon"
+            android:includeFontPadding="false"
+            android:padding="10dp"
+            android:text="Create"
+            android:textAlignment="gravity"
+            android:textColor="#000000"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/accountBtnSearch"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:autoText="false"
+            android:backgroundTint="#FFFFFF"
+            android:drawableTop="@drawable/person_icon"
+            android:includeFontPadding="false"
+            android:padding="10dp"
+            android:text="Account"
+            android:textAlignment="gravity"
+            android:textColor="#000000"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+</LinearLayout>
