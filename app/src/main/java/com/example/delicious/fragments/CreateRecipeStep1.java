@@ -12,11 +12,11 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
-import com.example.delicious.MainActivity;
+import com.example.delicious.activity.MainActivity;
 import com.example.delicious.R;
-import com.example.delicious.Recipe;
-import com.google.firebase.auth.FirebaseAuth;
+import com.example.delicious.models.Recipe;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -126,13 +126,16 @@ public class CreateRecipeStep1 extends Fragment {
                 String description = editTextDescription.getText().toString();
                 String time = editTextTime.getText().toString();
                 String category = spinnerCategory.getSelectedItem().toString();
-
-                currentRecipe.setName(name);
-                currentRecipe.setCategory(category);
-                currentRecipe.setPreparationTime(time);
-                currentRecipe.setDescription(description);
-                MainActivity.currentRecipe= currentRecipe;
-                Navigation.findNavController(view).navigate(R.id.action_createRecipe1_to_createRecipeStep2);
+                if(name.isEmpty() || description.isEmpty() || time.isEmpty() || category.isEmpty()) {
+                    Toast.makeText(getContext(), "all the fields must be filled", Toast.LENGTH_SHORT).show();
+                }else{
+                    currentRecipe.setName(name);
+                    currentRecipe.setCategory(category);
+                    currentRecipe.setPreparationTime(time);
+                    currentRecipe.setDescription(description);
+                    MainActivity.currentRecipe = currentRecipe;
+                    Navigation.findNavController(view).navigate(R.id.action_createRecipe1_to_createRecipeStep2);
+                }
             }
         });
          logoutBtn.setOnClickListener(new View.OnClickListener() {

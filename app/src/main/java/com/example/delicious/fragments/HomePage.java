@@ -13,9 +13,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.example.delicious.DataService;
+import com.example.delicious.services.DataService;
 import com.example.delicious.R;
-import com.example.delicious.Recipe;
+import com.example.delicious.models.Recipe;
 import com.example.delicious.adapters.CustomAdapterSearch;
 
 

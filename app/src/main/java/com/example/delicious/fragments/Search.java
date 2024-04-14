@@ -14,9 +14,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.example.delicious.DataService;
+import com.example.delicious.services.DataService;
 import com.example.delicious.R;
-import com.example.delicious.Recipe;
+import com.example.delicious.models.Recipe;
 import com.example.delicious.adapters.CustomAdapterSearch;
 
 import java.io.IOException;
@@ -85,6 +85,9 @@ public class Search extends Fragment {
         Button createBtn = view.findViewById(R.id.createBtnSearch);
         Button accountBtn = view.findViewById(R.id.accountBtnSearch);
         Button homeBtn = view.findViewById(R.id.homeBtnSearch);
+        Button veganBtn = view.findViewById(R.id.veganBtn);
+        Button vegetarianBtn = view.findViewById(R.id.vegetarianBtn);
+        Button glutenFreeBtn = view.findViewById(R.id.glutenFreeBtn);
         homeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -120,8 +123,9 @@ public class Search extends Fragment {
                     dataset.clear();
                     try {
                         ;
-                        for (Recipe recipe : DataService.getArrRecipes(q))
+                        for (Recipe recipe : DataService.getArrRecipes(q)) {
                             dataset.add(recipe);
+                        }
 
                         // Initialize your adapter with the dataset
                         adapter = new CustomAdapterSearch(dataset, requireContext());
@@ -137,6 +141,98 @@ public class Search extends Fragment {
                 }
             }
         });
+
+        glutenFreeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editTextSearch = view.findViewById(R.id.editTextSearch);
+                String q = editTextSearch.getText().toString();
+                if(!q.isEmpty()){
+                    recyclerView = view.findViewById(R.id.recyclerViewSearch);
+                    dataset = new ArrayList<>();
+                    dataset.clear();
+                    try {
+                        ;
+                        for (Recipe recipe : DataService.getDietArrRecipes(q,"gluten free")) {
+                            dataset.add(recipe);
+                        }
+
+                        // Initialize your adapter with the dataset
+                        adapter = new CustomAdapterSearch(dataset, requireContext());
+
+                        // Set up your RecyclerView with the adapter
+                        linearLayoutManager = new LinearLayoutManager(requireContext());
+                        recyclerView.setLayoutManager(linearLayoutManager);
+                        recyclerView.setItemAnimator(new DefaultItemAnimator());
+                        recyclerView.setAdapter(adapter);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+
+            }
+        });
+        veganBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editTextSearch = view.findViewById(R.id.editTextSearch);
+                String q = editTextSearch.getText().toString();
+                if(!q.isEmpty()){
+                    recyclerView = view.findViewById(R.id.recyclerViewSearch);
+                    dataset = new ArrayList<>();
+                    dataset.clear();
+                    try {
+                        ;
+                        for (Recipe recipe : DataService.getDietArrRecipes(q,"Vegan")) {
+                            dataset.add(recipe);
+                        }
+
+                        // Initialize your adapter with the dataset
+                        adapter = new CustomAdapterSearch(dataset, requireContext());
+
+                        // Set up your RecyclerView with the adapter
+                        linearLayoutManager = new LinearLayoutManager(requireContext());
+                        recyclerView.setLayoutManager(linearLayoutManager);
+                        recyclerView.setItemAnimator(new DefaultItemAnimator());
+                        recyclerView.setAdapter(adapter);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+
+            }
+        });
+        vegetarianBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editTextSearch = view.findViewById(R.id.editTextSearch);
+                String q = editTextSearch.getText().toString();
+                if(!q.isEmpty()){
+                    recyclerView = view.findViewById(R.id.recyclerViewSearch);
+                    dataset = new ArrayList<>();
+                    dataset.clear();
+                    try {
+                        ;
+                        for (Recipe recipe : DataService.getDietArrRecipes(q,"Vegetarian")) {
+                            dataset.add(recipe);
+                        }
+
+                        // Initialize your adapter with the dataset
+                        adapter = new CustomAdapterSearch(dataset, requireContext());
+
+                        // Set up your RecyclerView with the adapter
+                        linearLayoutManager = new LinearLayoutManager(requireContext());
+                        recyclerView.setLayoutManager(linearLayoutManager);
+                        recyclerView.setItemAnimator(new DefaultItemAnimator());
+                        recyclerView.setAdapter(adapter);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+
+            }
+        });
+
 
 
 

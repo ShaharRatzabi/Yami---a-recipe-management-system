@@ -9,7 +9,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:paddingTop="50dp"
-    tools:context=".MainActivity">
+    tools:context=".activity.MainActivity">
 
     <ImageView
         android:id="@+id/imageView2"

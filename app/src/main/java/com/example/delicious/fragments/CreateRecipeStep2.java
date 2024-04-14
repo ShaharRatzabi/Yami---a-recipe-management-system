@@ -11,10 +11,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
-import com.example.delicious.MainActivity;
+import com.example.delicious.activity.MainActivity;
 import com.example.delicious.R;
-import com.example.delicious.Recipe;
+import com.example.delicious.models.Recipe;
 import com.example.delicious.adapters.IngredientAdapter;
 
 import java.util.ArrayList;
@@ -112,9 +113,13 @@ public class CreateRecipeStep2 extends Fragment {
             @Override
             public void onClick(View v) {
                 currentRecipe.setIngredients(ingredientsList);
-                MainActivity.currentRecipe= currentRecipe;
-                Navigation.findNavController(view).navigate(R.id.action_createRecipeStep2_to_createRecipeStep3);
-
+                if(currentRecipe.getIngredients().isEmpty()){
+                    Toast.makeText(getContext(), "please add ingredients", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    MainActivity.currentRecipe = currentRecipe;
+                    Navigation.findNavController(view).navigate(R.id.action_createRecipeStep2_to_createRecipeStep3);
+                }
             }
         });
 

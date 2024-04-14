@@ -10,10 +10,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
-import com.example.delicious.MainActivity;
+import com.example.delicious.activity.MainActivity;
 import com.example.delicious.R;
-import com.example.delicious.Recipe;
+import com.example.delicious.models.Recipe;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -71,21 +72,24 @@ public class CreateRecipeStep3 extends Fragment {
         Button toStep4 = view.findViewById(R.id.NextToStep4Btn);
         Button backToStep2 = view.findViewById(R.id.logoutBtnStep1);
         EditText editTextSteps = view.findViewById(R.id.editTextMultiLineSteps);
-        String steps = editTextSteps.getText().toString();
         backToStep2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                currentRecipe.setSteps(steps);
-                MainActivity.currentRecipe = currentRecipe;
                 Navigation.findNavController(view).navigate(R.id.action_createRecipeStep3_to_createRecipeStep2);
             }
+
         });
         toStep4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Recipe currentRecipe = MainActivity.currentRecipe;
-                currentRecipe.setSteps(steps);
-                Navigation.findNavController(view).navigate(R.id.action_createRecipeStep3_to_createRecipe);
+                String steps = editTextSteps.getText().toString();
+                if (steps.isEmpty()) {
+                    Toast.makeText(getContext(), "steps must be filled", Toast.LENGTH_SHORT).show();
+                } else {
+                    Recipe currentRecipe = MainActivity.currentRecipe;
+                    currentRecipe.setSteps(steps);
+                    Navigation.findNavController(view).navigate(R.id.action_createRecipeStep3_to_createRecipe);
+                }
             }
         });
 

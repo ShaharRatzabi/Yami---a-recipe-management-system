@@ -9,7 +9,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="647dp"
+        android:layout_height="658dp"
         android:background="@drawable/white_background"
         android:orientation="vertical"
         tools:context=".fragments.CreateRecipeStep1">

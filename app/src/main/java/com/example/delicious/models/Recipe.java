@@ -1,4 +1,4 @@
-package com.example.delicious;
+package com.example.delicious.models;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;

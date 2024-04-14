@@ -1,8 +1,9 @@
-package com.example.delicious;
+package com.example.delicious.services;
 
 import android.os.StrictMode;
-import android.util.Log;
 
+import com.example.delicious.R;
+import com.example.delicious.models.Recipe;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -12,7 +13,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Random;
@@ -21,13 +21,20 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class DataService {
     private static   ArrayList<Recipe> recipes = new ArrayList<>();
-    private static String apiKey = "edd56f0b1a844195b4a8971a571ea2ef";
+    private static String apiKey = "af4599db06644e7e94c7ac5426b9a7ea";
     public static ArrayList<Recipe> getArrRecipes(String q) throws IOException{
         Random random = new Random();
         Integer randomNumber = random.nextInt(10);
         String sURL = "https://api.spoonacular.com/recipes/complexSearch?apiKey=" + apiKey +
-                "&addRecipeInformation=true&instructionsRequired=true&fillIngredients=true&number=1&offset="+randomNumber.toString() +"&query=" + q;
+                "&addRecipeInformation=true&instructionsRequired=true&fillIngredients=true&number=100&offset="+randomNumber.toString() +"&query=" + q;
 
+        JsonArray resultsArray = getJsonObject(sURL).get("results").getAsJsonArray();
+        return fromJsonToArr(resultsArray);
+    }
+    public static ArrayList<Recipe> getDietArrRecipes(String q,String diet) throws IOException{
+        Random random = new Random();
+        Integer randomNumber = random.nextInt(10);
+        String sURL = "https://api.spoonacular.com/recipes/complexSearch?query="+q+"&diet="+diet+"&addRecipeInformation=true&instructionsRequired=true&fillIngredients=true&number=100&apiKey="+apiKey;
         JsonArray resultsArray = getJsonObject(sURL).get("results").getAsJsonArray();
         return fromJsonToArr(resultsArray);
     }
@@ -36,7 +43,7 @@ public class DataService {
         Random random = new Random();
         Integer randomNumber = random.nextInt(10);
         String sURL = "https://api.spoonacular.com/recipes/random?apiKey=" + apiKey +
-                "&number=100";
+                "&number=5";
         JsonObject rootObj = getJsonObject(sURL);
         if (rootObj != null && rootObj.has("recipes")) {
             JsonArray resultsArray = rootObj.get("recipes").getAsJsonArray();

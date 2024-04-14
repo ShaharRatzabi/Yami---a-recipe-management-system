@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.delicious.R;
-import com.example.delicious.Recipe;
+import com.example.delicious.models.Recipe;
 import com.example.delicious.adapters.CustomAdapterAccount;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;

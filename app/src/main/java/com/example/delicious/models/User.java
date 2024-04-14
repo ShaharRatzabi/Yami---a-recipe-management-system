@@ -1,4 +1,4 @@
-package com.example.delicious;
+package com.example.delicious.models;
 
 public class User {
     private String userID;
