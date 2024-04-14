@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Recipe {
+    String id;
     private String name;
     private String preparationTime;
     private String category;
@@ -18,10 +19,12 @@ public class Recipe {
 
 
 
+
     public Recipe(){
 
     }
-    public Recipe(String name,String preparationTime, String category,String description,ArrayList<String> ingredients,String steps,String imageUrl){
+    public Recipe(String id, String name,String preparationTime, String category,String description,ArrayList<String> ingredients,String steps,String imageUrl){
+        this.id = id;
         this.name = name;
         this.preparationTime = preparationTime;
         this.category = category;
@@ -88,7 +91,13 @@ public class Recipe {
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
     }
+    public String getId(){
+        return this.id;
+    }
 
+    public void setId(String id) {
+        this.id = id;
+    }
 }
 
 

@@ -16,6 +16,7 @@ import android.widget.Spinner;
 import com.example.delicious.MainActivity;
 import com.example.delicious.R;
 import com.example.delicious.Recipe;
+import com.google.firebase.auth.FirebaseAuth;
 
 /**
  * A simple {@link Fragment} subclass.

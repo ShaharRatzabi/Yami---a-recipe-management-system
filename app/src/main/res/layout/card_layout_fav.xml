@@ -6,8 +6,8 @@
     android:orientation="horizontal">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="259dp"
-        android:layout_height="169dp"
+        android:layout_width="301dp"
+        android:layout_height="203dp"
         android:layout_margin="35dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/edittext_custom"

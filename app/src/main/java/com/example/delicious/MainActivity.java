@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     public static  Recipe currentRecipe = new Recipe();;
     private FirebaseAuth mAuth;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

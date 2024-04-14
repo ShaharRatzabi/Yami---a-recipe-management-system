@@ -145,6 +145,7 @@ public class CustomAdapterSearch extends RecyclerView.Adapter<CustomAdapterSearc
                         DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("users").child(user.getUid());
                         DatabaseReference recipesRef = userRef.child("recipes");
                         DatabaseReference fromApi = recipesRef.child("from api");
+                        recipe.setId(recipeId);
                         fromApi.child(recipeId).setValue(recipe)
                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override

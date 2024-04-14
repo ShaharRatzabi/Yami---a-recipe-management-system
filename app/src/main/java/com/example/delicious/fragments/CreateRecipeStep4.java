@@ -106,9 +106,10 @@ public class CreateRecipeStep4 extends Fragment {
                 // Get reference to Firebase Storage
                 if (imageUri != null) {
                     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                    String recipeId = UUID.randomUUID().toString(); // Generate a unique recipe id
+                    String recipeId = UUID.randomUUID().toString();
                     Recipe recipe = MainActivity.currentRecipe;
                     recipe.setImageUrl(imageUri.toString());
+                    recipe.setId(recipeId);
                     saveRecipeToDatabase(user, recipe);
                     Navigation.findNavController(view).navigate(R.id.action_createRecipe_to_accountPage2);
 
@@ -133,6 +134,7 @@ public class CreateRecipeStep4 extends Fragment {
         DatabaseReference yourOwn = recipesRef.child("your own");
         // Create a new recipe id
         String recipeId = recipesRef.push().getKey();
+        recipe.setId(recipeId);
         // Save the recipe under the user's recipes node
         yourOwn.child(recipeId).setValue(recipe)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {

@@ -122,14 +122,14 @@ public class HomePage extends Fragment {
         try {
             for (Recipe recipe : DataService.getRandomArrRecipes())
                 dataset.add(recipe);
-
-            adapter = new CustomAdapterSearch(dataset, requireContext());
-            linearLayoutManager = new LinearLayoutManager(requireContext());
-            recyclerView.setLayoutManager(linearLayoutManager);
-            recyclerView.setItemAnimator(new DefaultItemAnimator());
-            recyclerView.setAdapter(adapter);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
+        adapter = new CustomAdapterSearch(dataset, requireContext());
+        linearLayoutManager = new LinearLayoutManager(requireContext());
+        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(adapter);
     }
 }

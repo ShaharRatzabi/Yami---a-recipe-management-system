@@ -26,7 +26,7 @@ public class DataService {
         Random random = new Random();
         Integer randomNumber = random.nextInt(10);
         String sURL = "https://api.spoonacular.com/recipes/complexSearch?apiKey=" + apiKey +
-                "&addRecipeInformation=true&instructionsRequired=true&fillIngredients=true&number=100&offset="+randomNumber.toString() +"&query=" + q;
+                "&addRecipeInformation=true&instructionsRequired=true&fillIngredients=true&number=1&offset="+randomNumber.toString() +"&query=" + q;
 
         JsonArray resultsArray = getJsonObject(sURL).get("results").getAsJsonArray();
         return fromJsonToArr(resultsArray);
@@ -35,9 +35,15 @@ public class DataService {
     public static ArrayList<Recipe> getRandomArrRecipes() throws IOException {
         Random random = new Random();
         Integer randomNumber = random.nextInt(10);
-        String sURL = "https://api.spoonacular.com/recipes/random?apiKey=" + apiKey + "&addRecipeInformation=true&instructionsRequired=true&fillIngredients=true&number=12&offset=" + randomNumber.toString();
-        JsonArray resultsArray = getJsonObject(sURL).get("recipes").getAsJsonArray();
-        return fromJsonToArr(resultsArray);
+        String sURL = "https://api.spoonacular.com/recipes/random?apiKey=" + apiKey +
+                "&number=100";
+        JsonObject rootObj = getJsonObject(sURL);
+        if (rootObj != null && rootObj.has("recipes")) {
+            JsonArray resultsArray = rootObj.get("recipes").getAsJsonArray();
+            return fromJsonToArr(resultsArray);
+        }
+        ArrayList<Recipe> recipes1 = new ArrayList<>();
+        return recipes1;
     }
 
     private static JsonObject getJsonObject(String sURL) throws IOException {
@@ -111,7 +117,7 @@ public class DataService {
                 }
             }
 
-            Recipe recipe = new Recipe(name, totalTime, category, description, ingredientsList, instructions, imageUrl);
+            Recipe recipe = new Recipe("empty",name, totalTime, category, description, ingredientsList, instructions, imageUrl);
             recipes.add(recipe);
         }
 

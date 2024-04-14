@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
@@ -133,9 +134,30 @@ public class CustomAdapterAccount extends RecyclerView.Adapter<CustomAdapterAcco
                 }).setNegativeButton("DELETE", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-//                        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-//                        DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("users").child(user.getUid());
-//                        DatabaseReference recipesRef = userRef.child()
+                        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                        DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("users").child(user.getUid());
+                        int position = findPositionOfRecipe(textViewRecipeInstructions.getText().toString());
+                        if (position != -1 && position < dataset.size()) {
+                            String recipeId = dataset.get(position).getId();
+
+                            DatabaseReference yourOwnRef = userRef.child("recipes").child("your own").child(recipeId);
+                            DatabaseReference fromApiRef = userRef.child("recipes").child("from api").child(recipeId);
+                            yourOwnRef.removeValue()
+                                    .addOnSuccessListener(aVoid -> {
+                                        Toast.makeText(context, "deleted successfully", Toast.LENGTH_SHORT).show();
+                                        notifyDataSetChanged();
+                                    })
+                                    .addOnFailureListener(e -> {
+                                        Toast.makeText(context, "delete failed", Toast.LENGTH_SHORT).show();
+                                    });
+                            fromApiRef.removeValue()
+                                    .addOnSuccessListener(aVoid -> {
+                                        Toast.makeText(context, "deleted successfully", Toast.LENGTH_SHORT).show();
+                                    })
+                                    .addOnFailureListener(e -> {
+                                        Toast.makeText(context, "delete failed", Toast.LENGTH_SHORT).show();
+                                    });
+                        }
                     }
                 });
 
@@ -152,5 +174,13 @@ public class CustomAdapterAccount extends RecyclerView.Adapter<CustomAdapterAcco
             }
         });
         dialog.show();
+    }
+    private int findPositionOfRecipe(String instructions) {
+        for (int i = 0; i < dataset.size(); i++) {
+            if (dataset.get(i).getSteps().equals(instructions)) {
+                return i;
+            }
+        }
+        return -1; // Recipe not found
     }
 }

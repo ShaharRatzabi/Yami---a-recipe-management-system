@@ -140,6 +140,7 @@ public class AccountPage extends Fragment {
 
                 for (DataSnapshot recipeSnapshot : dataSnapshot.getChildren()) {
                     // Extract data from each recipe snapshot
+                    String id = recipeSnapshot.child("id").getValue(String.class);
                     String name = recipeSnapshot.child("name").getValue(String.class);
                     String description = recipeSnapshot.child("description").getValue(String.class);
                     String category = recipeSnapshot.child("category").getValue(String.class);
@@ -154,7 +155,7 @@ public class AccountPage extends Fragment {
                     }
 
                     // Create DataModel object and add to dataset
-                    Recipe recipe = new Recipe( name, time, category,description,ingredients,instructions,image);
+                    Recipe recipe = new Recipe(id, name, time, category,description,ingredients,instructions,image);
                     datasetFromApi.add(recipe);
                 }
                 // Notify adapter that dataset has changed
@@ -183,9 +184,9 @@ public class AccountPage extends Fragment {
         yourRecipes.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-
                 for (DataSnapshot recipeSnapshot : dataSnapshot.getChildren()) {
                     // Extract data from each recipe snapshot
+                    String id = recipeSnapshot.child("id").getValue(String.class);
                     String name = recipeSnapshot.child("name").getValue(String.class);
                     String description = recipeSnapshot.child("description").getValue(String.class);
                     String category = recipeSnapshot.child("category").getValue(String.class);
@@ -200,7 +201,7 @@ public class AccountPage extends Fragment {
                     }
 
                     // Create DataModel object and add to dataset
-                    Recipe recipe = new Recipe( name, time, category,description,ingredients,instructions,image);
+                    Recipe recipe = new Recipe(id, name, time, category,description,ingredients,instructions,image);
                     datasetYourRecipes.add(recipe);
                 }
                 // Notify adapter that dataset has changed
